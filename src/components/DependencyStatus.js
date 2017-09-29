@@ -15,7 +15,7 @@ class dependencyStatus extends Component {
     return (
       <div className="container">
           <h1>Dependency Status</h1>
-          <div class=".pt-ui-text">
+          <div class="pt-ui-text">
             Do any of the following apply?
           </div>
           {this.renderCheckboxes()}
