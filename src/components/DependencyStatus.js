@@ -5,10 +5,10 @@ import { dependencyStatusConditions } from '../config/dependency.js';
 class dependencyStatus extends Component {
 
   constructor(props) {
-      super(props)
-      this.state ={
+      super(props);
+      this.state = {
         conditions: dependencyStatusConditions,
-      }
+      };
   }
 
   render = () => {
@@ -27,7 +27,11 @@ class dependencyStatus extends Component {
     return this.state.conditions.map((condition) => {
       const handleCheckedChange = () => {
         const updatedConditions = Array.from(this.state.conditions)
-          .map((c) => c.condition === condition.condition ? {...c, checked: !c.checked} : c);
+          .map((c) => {
+            return c.condition === condition.condition
+              ? {...c, checked: !c.checked}
+              : c;
+          });
         this.setState({
           conditions: updatedConditions,
         });
