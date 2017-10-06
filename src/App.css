@@ -1,1 +1,36 @@
 @import "~@blueprintjs/core/dist/blueprint.css";
+
+#shortform-header {
+  background-color: #A50707;
+}
+
+.header-title {
+  color: white;
+  padding: 20px 10px 10px 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.centered-container {
+  justify-content: center;
+}
+
+.centered-text {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.centered-input {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.bottom-control {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 20px 60px;
+}

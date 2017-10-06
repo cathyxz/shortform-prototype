@@ -67,9 +67,13 @@ class personalInfo extends Component {
           <input class="pt-input" type="text" placeholder="mm/dd/yyyy" dir="auto" />
         </div>
         <span>Social Security Number</span>
-        <input class="pt-input" type="text" placeholder="123-123-1234" dir="auto" />
+        <div className="pt-form-content">
+          <input class="pt-input" type="text" placeholder="123-123-1234" dir="auto" />
+        </div>
         <span>Home Address</span>
-        <input class="pt-input" type="text" placeholder="10 Baker St" dir="auto" />
+        <div className="pt-form-content">
+          <input class="pt-input" type="text" placeholder="10 Baker St" dir="auto" />
+        </div>
         <RadioGroup
           label="Citizenship Status"
           selectedValue={this.state.citizenshipStatus}
