@@ -3,34 +3,32 @@ import { connect } from 'react-redux';
 
 import { SAVE_FIRST_NAME } from '../reducers/BasicInfoReducer.js';
 
-class home extends Component {
+class basicInfo extends Component {
 
   handleContinueClick = (event) => {
-    const firstName = event.target.value;
-    console.log(firstName);
-    console.log(event);
+    const firstName = "Cathy";
     // TODO: dispatch name to redux
     // TODO: redirect to actual next page
     this.props.saveFirstName(firstName);
-    this.props.history.push("/basic-info")
+    // this.props.history.push("/personal-info")
   }
 
   render = () => {
+    const firstName = this.props.firstName;
     return (
       <div className="container">
         <div className="centered-container">
             <div className="centered-text">
               <div className="pt-ui-text-large">
-                Hi there! Who's going to fill out this FAFSA?
-                Please enter your first name.
+                Nice to meet you {firstName}! A few more details so we can save your progress.
               </div>
               <div className="centered-input">
-                <input className="pt-input" type="text" placeholder="First Name" dir="auto" />
+                <input className="pt-input" type="text" placeholder={firstName} dir="auto" />
               </div>
             </div>
         </div>
         <div className="bottom-control">
-          <button type="submit" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
+          <button type="button" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
             Continue
             <span className="pt-icon-standard pt-icon-arrow-right pt-align-right"></span>
           </button>
@@ -60,7 +58,7 @@ const mapDispatchToProps = (
   };
 }
 
-export const Home = connect(
+export const BasicInfo = connect(
   mapStateToProps,
   mapDispatchToProps
-)(home);
+)(basicInfo);
