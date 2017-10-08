@@ -5,14 +5,11 @@ import { SAVE_FIRST_NAME } from '../reducers/BasicInfoReducer.js';
 
 class home extends Component {
 
-  handleContinueClick = (event) => {
-    const firstName = event.target.value;
-    console.log(firstName);
-    console.log(event);
-    // TODO: dispatch name to redux
-    // TODO: redirect to actual next page
+  handleContinueClick = () => {
+    const firstName = this.refs.firstName.value;
     this.props.saveFirstName(firstName);
     this.props.history.push("/basic-info")
+
   }
 
   render = () => {
@@ -25,12 +22,12 @@ class home extends Component {
                 Please enter your first name.
               </div>
               <div className="centered-input">
-                <input className="pt-input" type="text" placeholder="First Name" dir="auto" />
+                <input className="pt-input" type="text" ref="firstName" placeholder="First Name" dir="auto" />
               </div>
             </div>
         </div>
         <div className="bottom-control">
-          <button type="submit" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
+          <button type="button" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
             Continue
             <span className="pt-icon-standard pt-icon-arrow-right pt-align-right"></span>
           </button>

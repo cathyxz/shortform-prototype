@@ -11,7 +11,7 @@ const initialState = {
 const basicInfo = (state = initialState, action) => {
   switch(action.type) {
     case SAVE_FIRST_NAME:
-      const { firstName } = action.payload;
+      const firstName = action.payload;
       return {...state, firstName}
     default:
       return state;

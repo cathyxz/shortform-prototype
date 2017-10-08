@@ -15,6 +15,7 @@ class basicInfo extends Component {
 
   render = () => {
     const firstName = this.props.firstName;
+    console.log(this.props);
     return (
       <div className="container">
         <div className="centered-container">
