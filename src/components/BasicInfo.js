@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { SAVE_FIRST_NAME } from '../reducers/BasicInfoReducer.js';
+import { UPDATE_BASIC_INFO } from '../reducers/BasicInfoReducer.js';
 
 class basicInfo extends Component {
 
   handleContinueClick = (event) => {
-    const firstName = "Cathy";
-    // TODO: dispatch name to redux
+    const info = {
+      firstName: this.refs.firstName.value,
+      lastName: this.refs.lastName.value,
+      email: this.refs.email.value,
+      phone: this.refs.phone.value,
+    };
     // TODO: redirect to actual next page
-    this.props.saveFirstName(firstName);
+    this.props.updateBasicInfo(info);
     // this.props.history.push("/personal-info")
   }
 
   render = () => {
     const firstName = this.props.firstName;
-    console.log(this.props);
     return (
       <div className="container">
         <div className="centered-container">
@@ -24,7 +27,10 @@ class basicInfo extends Component {
                 Nice to meet you {firstName}! A few more details so we can save your progress.
               </div>
               <div className="centered-input">
-                <input className="pt-input" type="text" placeholder={firstName} dir="auto" />
+                <input className="pt-input" type="text" ref="firstName" defaultValue={firstName} placeholder="First Name" dir="auto" />
+                <input className="pt-input" type="text" ref="lastName" placeholder="Your last name" dir="auto" />
+                <input className="pt-input" type="text" ref="email" placeholder="Email" dir="auto" />
+                <input className="pt-input" type="text" ref="phone" placeholder="Phone" dir="auto" />
               </div>
             </div>
         </div>
@@ -50,10 +56,10 @@ const mapDispatchToProps = (
   ownProps
 ) => {
   return {
-    saveFirstName: (firstName) => {
+    updateBasicInfo: (info) => {
       dispatch({
-        type: SAVE_FIRST_NAME,
-        payload: firstName,
+        type: UPDATE_BASIC_INFO,
+        payload: info,
       });
     }
   };
