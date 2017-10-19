@@ -6,7 +6,12 @@
 
 .header-title {
   color: white;
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 0 10px;
+}
+
+.header-subtitle {
+  color: white;
+  padding: 0 0 10px 10px;
 }
 
 .container {

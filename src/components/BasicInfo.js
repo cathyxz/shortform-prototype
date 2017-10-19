@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Checkbox } from '@blueprintjs/core';
 
 import { UPDATE_BASIC_INFO } from '../reducers/BasicInfoReducer.js';
+import { simplifiedCalculationConditions } from '../config/simplifiedFormula.js';
 
 class basicInfo extends Component {
 
-  handleContinueClick = (event) => {
-    const info = {
-      firstName: this.refs.firstName.value,
-      lastName: this.refs.lastName.value,
-      email: this.refs.email.value,
-      phone: this.refs.phone.value,
+  constructor(props) {
+    super(props);
+    this.state = {
+      conditions: simplifiedCalculationConditions,
     };
+  }
+
+  handleContinueClick = (event) => {
+    // TODO: depending on click, redirect to simplified or full form
     // TODO: redirect to actual next page
-    this.props.updateBasicInfo(info);
     // this.props.history.push("/personal-info")
   }
 
@@ -24,27 +27,48 @@ class basicInfo extends Component {
         <div className="centered-container">
             <div className="centered-text">
               <div className="pt-ui-text-large">
-                Nice to meet you {firstName}! A few more details so we can save your progress.
+                There are two possible EFC formulas for dependent students. Let's figure out which one applies to you.
+                <br/>
+                Check all of the following that are true.
               </div>
-              <div className="centered-input">
-                <input className="pt-input" type="text" ref="firstName" defaultValue={firstName} placeholder="First Name" dir="auto" />
-                <input className="pt-input" type="text" ref="lastName" placeholder="Your last name" dir="auto" />
-                <input className="pt-input" type="text" ref="email" placeholder="Email" dir="auto" />
-                <input className="pt-input" type="text" ref="phone" placeholder="Phone" dir="auto" />
+              <div className="checkbox-container">
+                { this.renderCheckboxes() }
               </div>
             </div>
         </div>
         <div className="bottom-control">
           <button type="button" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
-            Continue
+            Next
             <span className="pt-icon-standard pt-icon-arrow-right pt-align-right"></span>
           </button>
         </div>
       </div>
     );
   }
+
+  renderCheckboxes = () => {
+    return this.state.conditions.map((condition) => {
+      const handleCheckedChange = () => {
+        const updatedConditions = Array.from(this.state.conditions)
+          .map((c) => {
+            return c.condition === condition.condition
+              ? {...c, checked: !c.checked}
+              : c;
+          });
+        this.setState({
+          conditions: updatedConditions,
+        });
+      }
+      return (
+        <Checkbox checked={condition.checked} onChange={handleCheckedChange}>
+          {condition.description}
+        </Checkbox>
+      );
+    })
+  }
 }
 
+// TODO: fix dispatchers to save the correct data
 const mapStateToProps = (state) => {
   return {
     firstName: state.firstName
