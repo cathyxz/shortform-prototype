@@ -15,9 +15,15 @@ class basicInfo extends Component {
   }
 
   handleContinueClick = (event) => {
-    // TODO: depending on click, redirect to simplified or full form
-    // TODO: redirect to actual next page
-    // this.props.history.push("/personal-info")
+    const checkedConditions = this.state.conditions
+      .filter((condition) => condition.checked)
+      .map((condition) => condition.condition);
+    if (checkedConditions.findIndex("combined_income_under_threshold") >= 0
+      && checkedConditions.length > 1) {
+        // TODO: redirect to simplified formula
+      } else {
+        // TODO: redirect to original formula
+      }
   }
 
   render = () => {
@@ -68,28 +74,4 @@ class basicInfo extends Component {
   }
 }
 
-// TODO: fix dispatchers to save the correct data
-const mapStateToProps = (state) => {
-  return {
-    firstName: state.firstName
-  }
-}
-
-const mapDispatchToProps = (
-  dispatch,
-  ownProps
-) => {
-  return {
-    updateBasicInfo: (info) => {
-      dispatch({
-        type: UPDATE_BASIC_INFO,
-        payload: info,
-      });
-    }
-  };
-}
-
-export const BasicInfo = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(basicInfo);
+export const BasicInfo = basicInfo;
