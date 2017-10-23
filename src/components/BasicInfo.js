@@ -17,11 +17,12 @@ class basicInfo extends Component {
     const checkedConditions = this.state.conditions
       .filter((condition) => condition.checked)
       .map((condition) => condition.condition);
-    if (checkedConditions.findIndex("combined_income_under_threshold") >= 0
+    if (checkedConditions.includes("combined_income_under_threshold")
       && checkedConditions.length > 1) {
-        // TODO: redirect to simplified formula
+        this.props.history.push("/simplified-dependent-efc")
       } else {
         // TODO: redirect to original formula
+        alert("Default dependent efc calculator not implemented. ")
       }
   }
 
@@ -29,7 +30,7 @@ class basicInfo extends Component {
     return (
       <div className="container">
         <div className="centered-container">
-            <div className="centered-text">
+            <div>
               <div className="pt-ui-text-large">
                 There are two possible EFC formulas for dependent students. Let's figure out which one applies to you.
                 <br/>
