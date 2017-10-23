@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Checkbox } from '@blueprintjs/core';
 
-import { UPDATE_BASIC_INFO } from '../reducers/BasicInfoReducer.js';
 import { simplifiedCalculationConditions } from '../config/simplifiedFormula.js';
 
+// TODO: rename this page to something more appropriate
 class basicInfo extends Component {
 
   constructor(props) {
@@ -27,7 +26,6 @@ class basicInfo extends Component {
   }
 
   render = () => {
-    const firstName = this.props.firstName;
     return (
       <div className="container">
         <div className="centered-container">

@@ -21,7 +21,7 @@ export const simplifiedCalculationConditions = [
   },
   {
       condition: "is_dislocated_worker",
-      description: "Your parent is a dislocated worker.",
+      description: "At least one of your parents is a dislocated worker.",
       checked: false
   },
   {
