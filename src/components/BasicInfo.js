@@ -54,17 +54,21 @@ class basicInfo extends Component {
 
   renderCheckboxes = () => {
     return this.state.conditions.map((condition) => {
+
       const handleCheckedChange = () => {
+
         const updatedConditions = Array.from(this.state.conditions)
           .map((c) => {
             return c.condition === condition.condition
               ? {...c, checked: !c.checked}
               : c;
           });
+
         this.setState({
           conditions: updatedConditions,
         });
-      }
+      };
+
       return (
         <Checkbox checked={condition.checked} onChange={handleCheckedChange}>
           {condition.description}

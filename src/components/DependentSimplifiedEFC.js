@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 class dependentSimplifiedEFC extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalParentIncome: 0,
+    };
+  }
+
   handleContinueClick = (event) => {
     // TODO: display EFC
   }
@@ -17,6 +24,13 @@ class dependentSimplifiedEFC extends Component {
               <div>
                 <h2>Parents' Contribution</h2>
                 <h3>Parents Income in 2015</h3>
+                <input className="pt-input form-input-standard" type="text" ref="	AdjustedGrossIncome" placeholder="Adjusted	Gross Income" dir="auto" />
+
+                <input className="pt-input form-input-standard" type="text" ref="parentAIncome" placeholder="Parent A Income" dir="auto" />
+
+                <input className="pt-input form-input-standard" type="text" ref="parentBIncome" placeholder="Parent B Income" dir="auto" />
+
+                <input className="pt-input form-input-standard pt-disabled" type="text" ref="totalParentIncome" value={this.state.totalParentIncome} placeholder="Total Parent Income" dir="auto" />
 
                 <h3>Allowances Against Parents' Income</h3>
 
