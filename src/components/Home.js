@@ -19,13 +19,15 @@ class home extends Component {
                 If yes, your EFC is zero. If not, let's click next.
               </div>
             </div>
+            <div className="button-control">
+              <button type="button" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
+                Next
+                <span className="pt-icon-standard pt-icon-arrow-right pt-align-right"></span>
+              </button>
+            </div>
+
         </div>
-        <div className="bottom-control">
-          <button type="button" className="pt-button pt-intent-primary" onClick={this.handleContinueClick}>
-            Next
-            <span className="pt-icon-standard pt-icon-arrow-right pt-align-right"></span>
-          </button>
-        </div>
+
       </div>
     );
   }

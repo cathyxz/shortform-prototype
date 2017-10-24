@@ -1,5 +1,7 @@
 @import "~@blueprintjs/core/dist/blueprint.css";
 
+@pt-grid-size: 10px;
+
 #shortform-header {
   background-color: #A50707;
 }
@@ -16,17 +18,19 @@
 
 .container {
   display: flex;
-  flex-direction: column;
-}
-.centered-container {
   justify-content: center;
+
+  .centered-container {
+    width: @pt-grid-size * 60;
+    padding: 20px;
+
+    .button-control {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
 
-.centered-text {
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
 
 .centered-input {
   display: flex;
@@ -34,8 +38,3 @@
   padding: 10px;
 }
 
-.bottom-control {
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 20px 60px;
-}
