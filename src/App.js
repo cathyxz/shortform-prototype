@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import './App.css';
+import './App.less';
 import { DependencyStatus } from './components/DependencyStatus.js';
 import { Home } from './components/Home.js';
 import { BasicInfo } from './components/BasicInfo.js';

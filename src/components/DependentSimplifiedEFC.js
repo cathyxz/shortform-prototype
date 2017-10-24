@@ -12,6 +12,25 @@ class dependentSimplifiedEFC extends Component {
         <div className="centered-container">
             <div className="centered-text">
               <div className="pt-ui-text-large">
+                Since the student is a dependent, the parents' combined income is less than $49,999, and other relevant conditions are satisfied, we can use a simplified EFC formula to calculate your EFC.
+              </div>
+              <div>
+                <h2>Parents' Contribution</h2>
+                <h3>Parents Income in 2015</h3>
+
+                <h3>Allowances Against Parents' Income</h3>
+
+                <h3>Available Income</h3>
+
+                <h3>Resulting Parents' Contribution</h3>
+
+                <h2>Students' Contribution</h2>
+
+                <h3>Student's Income in 2015</h3>
+
+                <h3>Allowances Against Student's Income</h3>
+
+                <h3>Resulting Student's Contribution</h3>
 
               </div>
             </div>
